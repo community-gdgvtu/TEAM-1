@@ -6,8 +6,8 @@ import { Server } from "socket.io";
 
 import createUserApi from "./src/users/api.js";
 import createWordsApi from "./src/words/api.js";
-import createMessagesApi from "./messages/api.js";
-import setupMessageSocket from "./messages/socket.js";
+import createMessagesApi from "./src/messages/api.js";
+import setupMessageSocket from "./src/messages/socket.js";
 
 dotenv.config();
 
