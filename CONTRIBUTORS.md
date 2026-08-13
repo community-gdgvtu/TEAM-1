@@ -9,7 +9,7 @@ Cross-border team: GDG on Campus VTU Belagavi × GDG on Campus Waseda University
 |      |               | VTU Belagavi |      |
 |      |               | VTU Belagavi |      |
 |      |               | Waseda University |      |
-|      |               | Waseda University |      |
+| Dennis Second Kubo |   | Waseda University |      |
 
 ## Mentors / Support
 
