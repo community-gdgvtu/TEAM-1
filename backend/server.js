@@ -1,9 +1,13 @@
 import express from "express";
 import { MongoClient } from "mongodb";
 import dotenv from "dotenv";
+import http from "http";
+import { Server } from "socket.io";
 
 import createUserApi from "./src/users/api.js";
 import createWordsApi from "./src/words/api.js";
+import createMessagesApi from "./messages/api.js";
+import setupMessageSocket from "./messages/socket.js";
 
 dotenv.config();
 
@@ -26,6 +30,7 @@ console.log("Connected to MongoDB");
 // These are the routes that the API uses 
 app.use("/users", createUserApi(db));
 app.use("/words", createWordsApi(db));
+app.use("/words", createMessagesApi(db));
 
 // Simple test route
 app.get("/", (req, res) => {
@@ -34,6 +39,20 @@ app.get("/", (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
+
+//HTTP Server
+const server = http.createServer(app);
+
+//Sockets
+const io = new Server(server, {
+  cors: {
+    origin: "*"
+  }
+});
+
+setupMessageSocket(io, db);
+
+//Start Server
+server.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
