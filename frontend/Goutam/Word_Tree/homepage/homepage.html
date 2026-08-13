@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Word Tree</title>
+
+
+    <!-- =========================================
+         HOMEPAGE CSS
+         ========================================= -->
+
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/tree.css">
+    <link rel="stylesheet" href="css/panels.css">
+    <link rel="stylesheet" href="css/word-node.css">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/popup.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+
+    <!-- =========================================
+         PROFILE PICTURE POPUP CSS
+         ========================================= -->
+
+    <link
+        rel="stylesheet"
+        href="../profile-picture/profile-picture.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <main class="website-frame">
+
+
+        <!-- =========================================
+             NAVBAR
+             ========================================= -->
+
+        <header class="navbar">
+
+            <div class="brand">
+
+                <div class="brand-tree">
+                    🌳
+                </div>
+
+                <div class="brand-text">
+
+                    <h1>
+                        WORD TREE
+                    </h1>
+
+                    <p>
+                        learn • grow • connect
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <nav class="nav-buttons">
+
+                <button
+                    class="nav-button"
+                    data-page="something"
+                >
+                    SOMETHING<br>ELSE
+                </button>
+
+
+                <button
+                    class="nav-button"
+                    data-page="important"
+                >
+                    IMP<br>WORDS
+                </button>
+
+
+                <button
+                    class="nav-button"
+                    data-page="pals"
+                >
+                    PALS
+                </button>
+
+
+                <button
+                    class="nav-button"
+                    data-page="profile"
+                >
+                    PROFILE
+                </button>
+
+            </nav>
+
+        </header>
+
+
+
+        <!-- =========================================
+             MAIN CONTENT
+             ========================================= -->
+
+        <section class="main-area">
+
+
+            <!-- =====================================
+                 WELCOME PANEL
+                 ===================================== -->
+
+            <section class="welcome-panel panel">
+
+                <p class="small-heading">
+                    WELCOME TO
+                </p>
+
+
+                <h2>
+                    WORD TREE
+                </h2>
+
+
+                <div class="heading-line"></div>
+
+
+                <p class="welcome-description">
+
+                    A place where words grow,
+                    languages connect, and
+                    friendships bloom.
+
+                </p>
+
+
+                <button
+                    class="primary-button"
+                    id="startLearning"
+                >
+                    START LEARNING
+                </button>
+
+
+                <button
+                    class="secondary-button"
+                    id="exploreTree"
+                >
+                    EXPLORE THE TREE
+                </button>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 WORD TREE
+                 ===================================== -->
+
+            <section
+                class="tree-container"
+                id="treeSection"
+            >
+
+                <img
+                    src="../assets/tree.png"
+                    class="tree-image"
+                    alt="Word Tree"
+                >
+
+
+                <!-- =================================
+                     WORD NODES
+                     ================================= -->
+
+                <button
+                    class="word-node node-dream"
+                    data-word="YOUR_WORD"
+                >
+                    YOUR_WORD
+                </button>
+
+
+                <button
+                    class="word-node node-hello"
+                    data-word="YOUR_WORD"
+                >
+                    YOUR_WORD
+                </button>
+
+
+                <button
+                    class="word-node node-hope"
+                    data-word="YOUR_WORD"
+                >
+                    YOUR_WORD
+                </button>
+
+
+                <button
+                    class="word-node node-friend"
+                    data-word="YOUR_WORD"
+                >
+                    YOUR_WORD
+                </button>
+
+
+                <button
+                    class="word-node node-smile"
+                    data-word="YOUR_WORD"
+                >
+                    YOUR_WORD
+                </button>
+
+
+                <button
+                    class="word-node node-freedom"
+                    data-word="YOUR_WORD"
+                >
+                    YOUR_WORD
+                </button>
+
+
+                <button
+                    class="word-node node-family"
+                    data-word="YOUR_WORD"
+                >
+                    YOUR_WORD
+                </button>
+
+
+                <button
+                    class="word-node node-travel"
+                    data-word="YOUR_WORD"
+                >
+                    YOUR_WORD
+                </button>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 WHAT IS WORD TREE
+                 ===================================== -->
+
+            <section class="about-panel panel">
+
+                <h3>
+                    WHAT IS WORD TREE?
+                </h3>
+
+
+                <div class="about-item">
+
+                    <span class="about-icon">
+                        🌱
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            LEARN
+                        </strong>
+
+                        <p>
+                            Discover translations through
+                            an interactive word tree.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="about-item">
+
+                    <span class="about-icon">
+                        🍃
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            GROW
+                        </strong>
+
+                        <p>
+                            Add words in your language
+                            and grow your vocabulary.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="about-item">
+
+                    <span class="about-icon">
+                        🧑‍🤝‍🧑
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            CONNECT
+                        </strong>
+
+                        <p>
+                            Find language pals and make
+                            meaningful connections.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 LANGUAGE PANEL
+                 ===================================== -->
+
+            <section class="language-panel panel">
+
+                <h3>
+                    YOUR LANGUAGES
+                </h3>
+
+
+                <p>
+
+                    <strong>
+                        NATIVE:
+                    </strong>
+
+                </p>
+
+
+                <span class="language-placeholder">
+                    USER_NATIVE_LANGUAGE
+                </span>
+
+
+                <p>
+
+                    <strong>
+                        LEARNING:
+                    </strong>
+
+                </p>
+
+
+                <span class="learning-placeholder">
+                    USER_LEARNING_LANGUAGES
+                </span>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 QUOTE
+                 ===================================== -->
+
+            <section class="quote-panel panel">
+
+                <p>
+
+                    “Every word you learn
+                    is a bridge to a
+                    new world.”
+
+                </p>
+
+
+                <span>
+                    ♡
+                </span>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================================
+         TRANSLATION POPUP
+         ========================================= -->
+
+    <div
+        class="popup-overlay"
+        id="wordPopup"
+    >
+
+        <div class="popup">
+
+            <button
+                class="popup-close"
+                id="closeWordPopup"
+            >
+                ×
+            </button>
+
+
+            <h2 id="popupWord">
+                YOUR_WORD
+            </h2>
+
+
+            <p>
+
+                <strong>
+                    NATIVE LANGUAGE
+                </strong>
+
+            </p>
+
+
+            <p id="popupNativeLanguage">
+                USER_NATIVE_LANGUAGE
+            </p>
+
+
+            <div class="translation-box">
+
+                <p>
+                    TRANSLATION
+                </p>
+
+
+                <h3 id="translationResult">
+                    TRANSLATION_RESULT
+                </h3>
+
+
+                <p>
+                    USER_LEARNING_LANGUAGE
+                </p>
+
+            </div>
+
+
+            <div class="popup-buttons">
+
+                <button
+                    class="primary-button"
+                    id="translateButton"
+                >
+                    TRANSLATE
+                </button>
+
+
+                <button
+                    class="secondary-button"
+                    id="learnButton"
+                >
+                    LEARN
+                </button>
+
+
+                <button
+                    class="secondary-button"
+                    id="saveWordButton"
+                >
+                    ADD TO IMPORTANT WORDS
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================
+         QUIZ POPUP
+         ========================================= -->
+
+    <div
+        class="popup-overlay"
+        id="quizPopup"
+    >
+
+        <div class="popup quiz-popup">
+
+            <button
+                class="popup-close"
+                id="closeQuizPopup"
+            >
+                ×
+            </button>
+
+
+            <h2>
+                WHAT DOES THIS WORD MEAN?
+            </h2>
+
+
+            <h3 id="quizWord">
+                YOUR_WORD
+            </h3>
+
+
+            <div class="quiz-options">
+
+                <button>
+                    TRANSLATION_OPTION_A
+                </button>
+
+
+                <button>
+                    TRANSLATION_OPTION_B
+                </button>
+
+
+                <button>
+                    TRANSLATION_OPTION_C
+                </button>
+
+
+                <button>
+                    TRANSLATION_OPTION_D
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================
+         PROFILE PICTURE POPUP
+         ========================================= -->
+
+    <div id="profile-popup-container"></div>
+
+
+
+    <!-- =========================================
+         JAVASCRIPT
+         ========================================= -->
+
+    <!-- PROFILE POPUP -->
+    <script src="../profile-picture/profile-picture.js"></script>
+
+
+    <!-- HOMEPAGE JS -->
+
+    <script src="js/popup.js"></script>
+    <script src="js/tree.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/app.js"></script>
+
+
+</body>
+
+</html>
