@@ -1,0 +1,41 @@
+.primary-button,
+.secondary-button {
+
+    width: 100%;
+
+    min-height: 55px;
+
+    border: 4px solid #111;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 21px;
+
+    margin-top: 12px;
+
+    transition: 0.2s;
+}
+
+
+.primary-button {
+
+    background: #cb6b2a;
+
+    color: #111;
+}
+
+.secondary-button {
+
+    background: transparent;
+
+    color: #111;
+}
+
+
+.primary-button:hover,
+.secondary-button:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow: 4px 4px 0 #111;
+}
