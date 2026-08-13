@@ -1,171 +1,276 @@
 @media (max-width: 1100px) {
-
     .navbar {
-
-        flex-direction: column;
-
-        gap: 20px;
+        min-height: 70px;
+        padding: 6px 10px;
+        margin-bottom: 10px;
     }
 
-    .nav-buttons {
-
-        width: 100%;
-
-        justify-content: center;
+    .brand {
+        gap: 7px;
     }
 
-    .nav-button {
-
-        min-width: 130px;
-    }
-
-    .tree-container {
-
-        width: 100%;
-
-        margin-top: 400px;
-    }
-
-    .welcome-panel {
-
-        width: 380px;
-    }
-
-    .about-panel {
-
-        top: 1250px;
-
-        width: 100%;
-    }
-
-    .language-panel {
-
-        top: 1500px;
-
-        left: 0;
-
-        width: 100%;
-    }
-
-    .quote-panel {
-
-        top: 1700px;
-
-        left: 0;
-
-        width: 100%;
-    }
-
-    .main-area {
-
-        min-height: 1900px;
-    }
-}
-
-
-@media (max-width: 650px) {
-
-    body {
-
-        padding: 5px;
-    }
-
-    .website-frame {
-
-        padding: 8px;
-
-        border-width: 3px;
+    .brand-tree {
+        font-size: 32px;
     }
 
     .brand-text h1 {
-
-        font-size: 30px;
+        font-size: 25px;
     }
 
     .brand-text p {
-
-        font-size: 16px;
+        font-size: 12px;
     }
 
     .nav-buttons {
-
-        display: grid;
-
-        grid-template-columns: 1fr 1fr;
-
-        gap: 8px;
+        gap: 6px;
     }
 
     .nav-button {
-
-        min-width: 0;
-
-        min-height: 55px;
-
-        font-size: 16px;
-    }
-
-    .welcome-panel {
-
-        position: relative;
-
-        width: 100%;
-    }
-
-    .welcome-panel h2 {
-
-        font-size: 42px;
-    }
-
-    .tree-container {
-
-        margin-top: 30px;
-
-        min-height: 600px;
-    }
-
-    .word-node {
-
-        font-size: 14px;
-
-        min-width: 80px;
-
-        padding: 7px 10px;
-
-        border-width: 3px;
-    }
-
-    .tree-swing {
-
-        transform: scale(0.7);
-
-        transform-origin: center;
-    }
-
-    .about-panel,
-    .language-panel,
-    .quote-panel {
-
-        position: relative;
-
-        top: auto;
-
-        left: auto;
-
-        right: auto;
-
-        width: 100%;
-
-        margin-top: 20px;
+        min-width: 95px;
+        min-height: 45px;
+        font-size: 15px;
     }
 
     .main-area {
+        height: calc(100vh - 120px);
+        min-height: 0;
+    }
 
-        min-height: auto;
+    .tree-container {
+        width: 65%;
+        height: 100%;
+        min-height: 0;
+        margin-top: 0;
+    }
+
+    .welcome-panel {
+        width: min(330px, 30vw);
+    }
+
+    .about-panel {
+        width: min(350px, 30vw);
+    }
+
+    .quote-panel {
+        width: min(230px, 20vw);
+    }
+}
+
+@media (max-width: 800px) {
+    .website-frame {
+        padding: 8px;
+    }
+
+    .navbar {
+        min-height: 62px;
+        padding: 5px 8px;
+    }
+
+    .brand-tree {
+        font-size: 27px;
+    }
+
+    .brand-text h1 {
+        font-size: 21px;
+    }
+
+    .brand-text p {
+        font-size: 10px;
+    }
+
+    .nav-buttons {
+        gap: 4px;
+    }
+
+    .nav-button {
+        min-width: 75px;
+        min-height: 40px;
+        font-size: 12px;
+        border-width: 3px;
+    }
+
+    .main-area {
+        height: calc(100vh - 100px);
+    }
+
+    .welcome-panel {
+        width: 28%;
+        padding: 12px;
+    }
+
+    .about-panel {
+        width: 30%;
+        padding: 12px;
+    }
+
+    .quote-panel {
+        width: 20%;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 650px) {
+    body {
+        padding: 5px;
+        overflow: hidden;
+    }
+
+    .website-frame {
+        width: 100%;
+        height: calc(100vh - 10px);
+        padding: 6px;
+        border-width: 3px;
+    }
+
+    .navbar {
+        min-height: 0;
+        padding: 6px;
+        margin-bottom: 8px;
+        gap: 6px;
+    }
+
+    .brand {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .brand-tree {
+        font-size: 25px;
+    }
+
+    .brand-text h1 {
+        font-size: 20px;
+    }
+
+    .brand-text p {
+        font-size: 10px;
+    }
+
+    .nav-buttons {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 4px;
+    }
+
+    .nav-button {
+        min-width: 0;
+        min-height: 38px;
+        padding: 3px;
+        font-size: 11px;
+        border-width: 3px;
+    }
+
+    .main-area {
+        height: calc(100vh - 145px);
+        min-height: 0;
+        overflow: hidden;
+    }
+
+    .welcome-panel {
+        top: 0;
+        left: 0;
+        width: 38%;
+        padding: 10px;
+    }
+
+    .small-heading {
+        font-size: 13px;
+        margin-bottom: 5px;
+    }
+
+    .welcome-panel h2 {
+        font-size: 25px;
+        margin-bottom: 5px;
+    }
+
+    .heading-line {
+        width: 90%;
+        height: 3px;
+        margin: 6px auto 10px;
+    }
+
+    .welcome-description {
+        font-size: 12px;
+        line-height: 1.25;
+        margin-bottom: 8px;
+    }
+
+    .tree-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 68%;
+        height: 100%;
+        margin: 0;
+    }
+
+    .word-node {
+        font-size: 11px;
+        min-width: 60px;
+        padding: 5px 8px;
+        border-width: 3px;
+    }
+
+    .about-panel {
+        left: 0;
+        bottom: 0;
+        top: auto;
+        width: 38%;
+        padding: 8px;
+    }
+
+    .about-panel h3 {
+        font-size: 13px;
+        margin-bottom: 7px;
+    }
+
+    .about-item {
+        gap: 5px;
+        margin-bottom: 6px;
+    }
+
+    .about-icon {
+        font-size: 18px;
+        width: 22px;
+    }
+
+    .about-item strong {
+        font-size: 12px;
+    }
+
+    .about-item p {
+        font-size: 9px;
+        line-height: 1.15;
+        margin-top: 2px;
+    }
+
+    .quote-panel {
+        right: 2%;
+        bottom: 2%;
+        width: 20%;
+        padding: 7px;
+    }
+
+    .quote-panel p {
+        font-size: 9px;
+        line-height: 1.2;
+    }
+
+    .quote-panel span {
+        font-size: 20px;
+        margin-top: 3px;
+    }
+
+    .primary-button,
+    .secondary-button {
+        min-height: 34px;
+        font-size: 11px;
+        border-width: 3px;
+        margin-top: 5px;
     }
 
     .quiz-options {
-
         grid-template-columns: 1fr;
     }
 }

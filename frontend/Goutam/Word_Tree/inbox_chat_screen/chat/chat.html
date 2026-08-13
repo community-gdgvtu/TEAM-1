@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Tree - Chat</title>
+    <link rel="stylesheet" href="chat.css">
+</head>
+
+<body>
+    <main class="chat-page">
+
+        <!-- CHAT HEADER -->
+        <header class="chat-header">
+
+            <!-- BACK TO INBOX -->
+            <button class="chat-back-button" id="backToInbox" type="button">
+                ←
+            </button>
+
+            <!-- USER INFORMATION -->
+            <div class="chat-user">
+                <div class="chat-avatar">
+                    <img
+                        src="../../assets/profile-placeholder.png"
+                        alt="User profile picture"
+                        id="chatUserImage"
+                    >
+                </div>
+
+                <div class="chat-user-info">
+                    <h1 id="chatUserName">USER_NAME</h1>
+                    <p id="chatUserStatus">ONLINE_STATUS</p>
+                </div>
+            </div>
+
+            <!-- MORE OPTIONS -->
+            <button class="chat-more-button" id="chatMoreButton" type="button">
+                ⋮
+            </button>
+        </header>
+
+        <!-- CHAT CONTENT -->
+        <section class="chat-messages" id="chatMessages">
+
+            <!--
+                BACKEND TODO:
+                Backend will populate messages here.
+
+                DO NOT ADD DUMMY MESSAGES.
+
+                Expected data:
+                MESSAGE_ID
+                MESSAGE_CONTENT
+                MESSAGE_TIMESTAMP
+                MESSAGE_SENDER_ID
+                MESSAGE_READ_STATUS
+            -->
+
+            <div class="empty-chat">
+                <div class="empty-chat-icon">💬</div>
+                <h2>START YOUR CONVERSATION</h2>
+                <p>YOUR_MESSAGES_WILL_APPEAR_HERE</p>
+                <span>BACKEND INTEGRATION REQUIRED</span>
+            </div>
+
+        </section>
+
+        <!-- MESSAGE INPUT -->
+        <footer class="chat-input-area">
+
+            <button
+                class="chat-attachment-button"
+                id="attachmentButton"
+                type="button"
+                aria-label="Attach file"
+            >
+                +
+            </button>
+
+            <input
+                type="text"
+                id="messageInput"
+                placeholder="TYPE_YOUR_MESSAGE..."
+                autocomplete="off"
+            >
+
+            <button
+                class="chat-send-button"
+                id="sendMessage"
+                type="button"
+            >
+                SEND
+            </button>
+
+        </footer>
+
+        <!-- MORE OPTIONS POPUP -->
+        <div class="chat-options" id="chatOptions">
+
+            <button type="button" id="viewProfile">
+                VIEW PROFILE
+            </button>
+
+            <button type="button" id="reportUser">
+                REPORT USER
+            </button>
+
+            <button type="button" id="blockUser">
+                BLOCK USER
+            </button>
+
+        </div>
+
+    </main>
+
+    <script src="chat.js"></script>
+</body>
+</html>

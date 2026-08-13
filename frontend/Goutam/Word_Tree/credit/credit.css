@@ -1,0 +1,255 @@
+/* =========================================
+   WORD TREE - CREDITS
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    background: #e8e2c9;
+    color: #111;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+body {
+    min-height: 100vh;
+}
+
+/* MAIN PAGE */
+
+.credits-page {
+    width: min(1100px, 94%);
+    min-height: 92vh;
+    margin: 30px auto;
+    padding: 25px;
+    border: 5px solid #111;
+    background: #e8e2c9;
+}
+
+/* HEADER */
+
+.credits-header {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    padding: 15px;
+    border: 4px solid #111;
+    background: #e8e2c9;
+}
+
+/* BACK BUTTON */
+
+.back-button {
+    width: 55px;
+    height: 55px;
+    flex-shrink: 0;
+    background: #c40072;
+    border: 4px solid #111;
+    color: #111;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+.back-button:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 #111;
+}
+
+/* TITLE */
+
+.credits-title {
+    flex: 1;
+}
+
+.credits-title h1 {
+    margin: 0;
+    font-size: clamp(34px, 5vw, 58px);
+    letter-spacing: 2px;
+}
+
+.credits-title p {
+    margin: 4px 0 0;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+/* CONTENT */
+
+.credits-content {
+    width: 100%;
+    max-width: 950px;
+    margin: 35px auto 0;
+}
+
+/* INTRO */
+
+.credits-intro {
+    padding: 25px;
+    margin-bottom: 30px;
+    background: #ed3518;
+    border: 4px solid #111;
+    text-align: center;
+}
+
+.credits-intro h2 {
+    margin: 0 0 10px;
+    font-size: 32px;
+}
+
+.credits-intro p {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+/* TEAM */
+
+.team-section {
+    margin-bottom: 30px;
+}
+
+.team-section > h2,
+.technology-section > h2 {
+    margin: 0 0 18px;
+    font-size: 30px;
+    text-align: center;
+}
+
+/* TEAM GRID */
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+/* CREDIT CARD */
+
+.credit-card {
+    padding: 20px;
+    background: #c40072;
+    border: 4px solid #111;
+    text-align: center;
+    transition: 0.2s;
+}
+
+.credit-card:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 6px 6px 0 #111;
+}
+
+.member-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e8e2c9;
+    border: 4px solid #111;
+    font-size: 32px;
+}
+
+.credit-card h3 {
+    margin: 0 0 7px;
+    font-size: 19px;
+}
+
+.credit-card p {
+    margin: 0;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+/* TECHNOLOGIES */
+
+.technology-section {
+    padding: 25px;
+    margin-bottom: 30px;
+    background: #ed3518;
+    border: 4px solid #111;
+}
+
+.technology-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.technology-list span {
+    padding: 10px 18px;
+    background: #c40072;
+    border: 3px solid #111;
+    font-size: 15px;
+}
+
+/* MESSAGE */
+
+.credits-message {
+    padding: 25px;
+    background: #e8e2c9;
+    border: 4px dashed #111;
+    text-align: center;
+}
+
+.credits-message p {
+    margin: 0 0 12px;
+    font-size: 18px;
+}
+
+.credits-message span {
+    font-size: 28px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 800px) {
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .credits-page {
+        width: 96%;
+        margin: 15px auto;
+        padding: 15px;
+        border-width: 4px;
+    }
+
+    .credits-header {
+        gap: 12px;
+        padding: 10px;
+    }
+
+    .back-button {
+        width: 45px;
+        height: 45px;
+        font-size: 25px;
+    }
+
+    .credits-title h1 {
+        font-size: 35px;
+    }
+
+    .credits-title p {
+        font-size: 11px;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .credits-intro,
+    .technology-section {
+        padding: 18px;
+    }
+}
