@@ -7,6 +7,13 @@ export default function createWordsApi(db) {
   const words = db.collection("words");
 
   // Add a new word group
+  // Input is an Array called Translations: [Language: Words(Array)]
+  // Outut is an Array with ID, Translation
+  //Example usage:
+  //POST http://localhost:3000/words `
+  //   -H "Content-Type: application/json" `
+  //   -d '{\"translations\":[{\"language\":\"en\",\"words\":[\"house\",\"home\"]},{\"language\":\"ja\",\"words\":[\"家\",\"住宅\"]}]}'     
+  
   router.post("/", async (req, res) => {
   try {
     const translations = req.body.translations;
@@ -48,6 +55,11 @@ export default function createWordsApi(db) {
 });
 
   // Look up a word
+  // Input: Word
+  // Output: The translation Array
+  // Example usage:
+  // http://localhost:3000/words/house ==> outputs the group for "house"
+  
   router.get("/:word", async (req, res) => {
     try {
       const result = await words.findOne({
@@ -70,6 +82,14 @@ export default function createWordsApi(db) {
   });
 
   // Add a translation to an existing word group
+  //Important: link will be https....../words/<WORDID>/translations
+  // Input: WORD ID (in the link, not in the actual package), array: [Language: word(s)] 
+  //Example usage:
+  //PATCH "http://localhost:3000/words/6a7d9d02174c7409ba88052e/translations" `
+  //   -H "Content-Type: application/json" `
+  //   -d '{\"language\":\"id\",\"words\":[\"rumah\"]}'
+
+
   router.patch("/:id/translations", async (req, res) => {
     try {
       const result = await words.updateOne(

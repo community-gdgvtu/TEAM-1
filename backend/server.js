@@ -23,6 +23,7 @@ const db = client.db("wordtree");
 console.log("Connected to MongoDB");
 
 // API routes
+// These are the routes that the API uses 
 app.use("/users", createUserApi(db));
 app.use("/words", createWordsApi(db));
 

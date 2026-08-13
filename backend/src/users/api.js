@@ -6,6 +6,12 @@ export default function createUserApi(db) {
   const users = db.collection("users");
 
   // Add a new user
+  // Input is: Name
+  // Output to MongoDB is: USER ID, UserNAME
+  // Example Usage:
+  // POST http://localhost:3000/users `
+  //   -H "Content-Type: application/json" `
+  //   -d '{\"name\":\"Alice\"}' ==> Adds a user with name "Alice", no authentification at the moment
   router.post("/", async (req, res) => {
     try {
       const result = await users.insertOne({
