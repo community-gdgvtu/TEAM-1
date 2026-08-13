@@ -6,11 +6,28 @@ const router = express.Router();
 export default function createWordsApi(db) {
   const words = db.collection("words");
 
+  // Get all word groups
+  // Output is array of all words in the tree
+  // Example usage:
+  // GET http://localhost:3000/words ==> Outputs all existing words
+  router.get("/", async (req, res) => {
+  try {
+      const result = await words.find({}).toArray();
+
+      res.json(result);
+  } catch (error) {
+      res.status(500).json({
+      message: "Failed to retrieve words",
+      error: error.message
+       });
+   }
+   });
+
   // Add a new word group
   // Input is an Array called Translations: [Language: Words(Array)]
   // Outut is an Array with ID, Translation
-  //Example usage:
-  //POST http://localhost:3000/words `
+  // Example usage:
+  // POST http://localhost:3000/words `
   //   -H "Content-Type: application/json" `
   //   -d '{\"translations\":[{\"language\":\"en\",\"words\":[\"house\",\"home\"]},{\"language\":\"ja\",\"words\":[\"家\",\"住宅\"]}]}'     
   
@@ -59,7 +76,7 @@ export default function createWordsApi(db) {
   // Output: The translation Array
   // Example usage:
   // http://localhost:3000/words/house ==> outputs the group for "house"
-  
+
   router.get("/:word", async (req, res) => {
     try {
       const result = await words.findOne({

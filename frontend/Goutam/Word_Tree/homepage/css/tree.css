@@ -1,0 +1,92 @@
+.tree-container {
+
+    position: relative;
+
+    width: 65%;
+
+    min-height: 780px;
+
+    margin-left: auto;
+
+    margin-right: 0;
+
+    overflow: visible;
+}
+
+
+/* TREE IMAGE */
+
+.tree-image {
+
+    position: absolute;
+
+    width: 120%;
+
+    height: 100%;
+
+    object-fit: contain;
+
+    object-position: center;
+
+    z-index: 1;
+}
+
+
+/* SWING */
+
+.tree-swing {
+
+    position: absolute;
+
+    right: 23%;
+
+    bottom: 21%;
+
+    width: 150px;
+
+    height: 170px;
+
+    z-index: 5;
+}
+
+.swing-rope {
+
+    position: absolute;
+
+    top: 0;
+
+    height: 110px;
+
+    width: 3px;
+
+    background: #111;
+}
+
+.swing-rope.left {
+    left: 25px;
+}
+
+.swing-rope.right {
+    right: 25px;
+}
+
+.swing-seat {
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 0;
+
+    width: 150px;
+
+    padding: 12px;
+
+    text-align: center;
+
+    border: 4px solid #111;
+
+    background: #e8e2ca;
+
+    font-size: 17px;
+}

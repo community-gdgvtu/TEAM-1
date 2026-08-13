@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Word Tree - Login</title>
+
+    <link
+        rel="stylesheet"
+        href="login.css"
+    >
+
+</head>
+
+
+<body>
+
+    <main class="login-page">
+
+
+        <!-- =====================================
+             LEFT SIDE
+             ===================================== -->
+
+        <section class="login-tree-section">
+
+
+            <!-- BRAND -->
+
+            <div class="login-brand">
+
+                <div class="brand-icon">
+                    🌳
+                </div>
+
+                <div class="brand-text">
+
+                    <h1>
+                        WORD TREE
+                    </h1>
+
+                    <p>
+                        learn • grow • connect
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- TREE -->
+
+            <div class="login-tree">
+
+                <div class="tree-canopy"></div>
+
+                <div class="tree-trunk"></div>
+
+
+                <!-- WORD NODES -->
+
+                <div class="tree-word word-one">
+                    LEARN
+                </div>
+
+                <div class="tree-word word-two">
+                    CONNECT
+                </div>
+
+                <div class="tree-word word-three">
+                    GROW
+                </div>
+
+                <div class="tree-word word-four">
+                    WORDS
+                </div>
+
+            </div>
+
+
+            <!-- TAGLINE -->
+
+            <p class="login-tagline">
+
+                Where words grow,
+                languages connect,
+                and friendships bloom.
+
+            </p>
+
+        </section>
+
+
+
+        <!-- =====================================
+             RIGHT SIDE
+             ===================================== -->
+
+        <section class="login-form-section">
+
+
+            <div class="login-box">
+
+
+                <!-- TITLE -->
+
+                <h2>
+                    WELCOME
+                </h2>
+
+                <p class="login-subtitle">
+                    Enter your details to continue
+                </p>
+
+
+
+                <!-- =================================
+                     USERNAME
+                     ================================= -->
+
+                <div class="form-group">
+
+                    <label for="username">
+                        USERNAME
+                    </label>
+
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="ENTER YOUR USERNAME"
+                        autocomplete="username"
+                    >
+
+                </div>
+
+
+
+                <!-- =================================
+                     EMAIL
+                     ================================= -->
+
+                <div class="form-group">
+
+                    <label for="email">
+                        EMAIL
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="ENTER YOUR EMAIL"
+                        autocomplete="email"
+                    >
+
+                </div>
+
+
+
+                <!-- =================================
+                     PASSWORD
+                     ================================= -->
+
+                <div class="form-group">
+
+                    <label for="password">
+                        PASSWORD
+                    </label>
+
+
+                    <div class="password-wrapper">
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="ENTER YOUR PASSWORD"
+                            autocomplete="current-password"
+                        >
+
+
+                        <button
+                            type="button"
+                            id="togglePassword"
+                            class="password-toggle"
+                        >
+                            SHOW
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================
+                     LOGIN BUTTON
+                     ================================= -->
+
+                <button
+                    type="button"
+                    id="loginButton"
+                    class="login-button"
+                >
+                    LOG IN
+                </button>
+
+
+
+                <!-- =================================
+                     BACKEND PLACEHOLDER
+                     ================================= -->
+
+                <div class="backend-note">
+
+                    <strong>
+                        BACKEND PLACEHOLDER
+                    </strong>
+
+                    <br>
+
+                    AUTHENTICATION WILL BE
+                    IMPLEMENTED BY THE BACKEND TEAM.
+
+                </div>
+
+
+
+                <!-- =================================
+                     DIVIDER
+                     ================================= -->
+
+                <div class="login-divider">
+                    OR
+                </div>
+
+
+
+                <!-- =================================
+                     CREATE ACCOUNT
+                     ================================= -->
+
+                <p class="signup-text">
+
+                    DON'T HAVE AN ACCOUNT?
+
+                    <button
+                        type="button"
+                        id="signupButton"
+                    >
+                        CREATE ACCOUNT
+                    </button>
+
+                </p>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="login.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,748 @@
+/* =========================================
+   WORD TREE LOGIN PAGE
+   ========================================= */
+
+
+/* =========================================
+   RESET
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    background: #e8e2ca;
+
+    color: #111;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+}
+
+
+/* =========================================
+   MAIN PAGE
+   ========================================= */
+
+.login-page {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    border: 8px solid #111;
+
+}
+
+
+/* =========================================
+   LEFT SIDE
+   ========================================= */
+
+.login-tree-section {
+
+    width: 50%;
+
+    min-height: 100vh;
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 40px;
+
+    background: #e8e2ca;
+
+    border-right: 5px solid #111;
+
+}
+
+
+/* =========================================
+   BRAND
+   ========================================= */
+
+.login-brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    position: relative;
+
+    z-index: 10;
+
+}
+
+
+.brand-icon {
+
+    font-size: 55px;
+
+}
+
+
+.brand-text h1 {
+
+    font-size: 42px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.brand-text p {
+
+    font-size: 18px;
+
+    margin-top: 5px;
+
+}
+
+
+/* =========================================
+   TREE AREA
+   ========================================= */
+
+.login-tree {
+
+    position: absolute;
+
+    width: 520px;
+
+    height: 560px;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform:
+        translate(-50%, -45%);
+
+}
+
+
+/* =========================================
+   TREE CANOPY
+   ========================================= */
+
+.tree-canopy {
+
+    position: absolute;
+
+    width: 470px;
+
+    height: 330px;
+
+    left: 25px;
+
+    top: 50px;
+
+    background: #7cad27;
+
+    border-radius: 50%;
+
+    opacity: 0.9;
+
+}
+
+
+/* =========================================
+   TREE TRUNK
+   ========================================= */
+
+.tree-trunk {
+
+    position: absolute;
+
+    width: 105px;
+
+    height: 330px;
+
+    left: 205px;
+
+    top: 200px;
+
+    background: #70251b;
+
+    border-radius:
+        45%
+        45%
+        20%
+        20%;
+
+    z-index: 2;
+
+}
+
+
+/* ROOT */
+
+.tree-trunk::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 260px;
+
+    height: 70px;
+
+    left: -78px;
+
+    bottom: -30px;
+
+    background: #70251b;
+
+    border-radius: 50%;
+
+}
+
+
+/* =========================================
+   TREE WORD NODES
+   ========================================= */
+
+.tree-word {
+
+    position: absolute;
+
+    z-index: 5;
+
+    padding: 12px 25px;
+
+    background: #c40072;
+
+    border: 4px solid #111;
+
+    font-size: 20px;
+
+    white-space: nowrap;
+
+}
+
+
+/* WORD POSITIONS */
+
+.word-one {
+
+    top: 85px;
+
+    left: 25px;
+
+}
+
+
+.word-two {
+
+    top: 170px;
+
+    right: 5px;
+
+}
+
+
+.word-three {
+
+    top: 270px;
+
+    left: 55px;
+
+}
+
+
+.word-four {
+
+    top: 320px;
+
+    right: 40px;
+
+}
+
+
+/* =========================================
+   TAGLINE
+   ========================================= */
+
+.login-tagline {
+
+    position: absolute;
+
+    left: 40px;
+
+    bottom: 50px;
+
+    width: 420px;
+
+    font-size: 24px;
+
+    line-height: 1.4;
+
+}
+
+
+/* =========================================
+   RIGHT SIDE
+   ========================================= */
+
+.login-form-section {
+
+    width: 50%;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 40px;
+
+    background: #ed3518;
+
+}
+
+
+/* =========================================
+   LOGIN BOX
+   ========================================= */
+
+.login-box {
+
+    width: 500px;
+
+    max-width: 100%;
+
+    padding: 40px;
+
+    background: #ed3518;
+
+    border: 5px solid #111;
+
+    box-shadow:
+        12px 12px 0 #111;
+
+}
+
+
+/* =========================================
+   HEADING
+   ========================================= */
+
+.login-box h2 {
+
+    text-align: center;
+
+    font-size: 44px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.login-subtitle {
+
+    text-align: center;
+
+    font-size: 17px;
+
+    margin-bottom: 32px;
+
+}
+
+
+/* =========================================
+   FORM GROUP
+   ========================================= */
+
+.form-group {
+
+    margin-bottom: 22px;
+
+}
+
+
+.form-group label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+}
+
+
+.form-group input {
+
+    width: 100%;
+
+    height: 55px;
+
+    padding: 0 15px;
+
+    background: #e8e2ca;
+
+    border: 4px solid #111;
+
+    color: #111;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 17px;
+
+    outline: none;
+
+}
+
+
+.form-group input::placeholder {
+
+    color: #555;
+
+}
+
+
+.form-group input:focus {
+
+    box-shadow:
+        5px 5px 0 #111;
+
+}
+
+
+/* =========================================
+   PASSWORD
+   ========================================= */
+
+.password-wrapper {
+
+    position: relative;
+
+}
+
+
+.password-wrapper input {
+
+    padding-right: 85px;
+
+}
+
+
+.password-toggle {
+
+    position: absolute;
+
+    top: 50%;
+
+    right: 8px;
+
+    transform:
+        translateY(-50%);
+
+    padding: 6px 9px;
+
+    background: #c40072;
+
+    border: 2px solid #111;
+
+    color: #111;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    cursor: pointer;
+
+}
+
+
+/* =========================================
+   LOGIN BUTTON
+   ========================================= */
+
+.login-button {
+
+    width: 100%;
+
+    height: 60px;
+
+    margin-top: 8px;
+
+    background: #c40072;
+
+    border: 4px solid #111;
+
+    color: #111;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+}
+
+
+.login-button:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        5px 5px 0 #111;
+
+}
+
+
+/* =========================================
+   BACKEND NOTE
+   ========================================= */
+
+.backend-note {
+
+    margin-top: 20px;
+
+    padding: 12px;
+
+    border: 3px dashed #111;
+
+    text-align: center;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+}
+
+
+/* =========================================
+   DIVIDER
+   ========================================= */
+
+.login-divider {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin: 25px 0;
+
+    text-align: center;
+
+}
+
+
+.login-divider::before,
+.login-divider::after {
+
+    content: "";
+
+    height: 3px;
+
+    background: #111;
+
+    flex: 1;
+
+}
+
+
+/* =========================================
+   SIGN UP
+   ========================================= */
+
+.signup-text {
+
+    text-align: center;
+
+    font-size: 15px;
+
+}
+
+
+.signup-text button {
+
+    border: none;
+
+    background: transparent;
+
+    color: #111;
+
+    text-decoration: underline;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+}
+
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 950px) {
+
+    .login-page {
+
+        flex-direction: column;
+
+    }
+
+
+    .login-tree-section {
+
+        width: 100%;
+
+        min-height: 430px;
+
+        height: 430px;
+
+        border-right: none;
+
+        border-bottom: 5px solid #111;
+
+    }
+
+
+    .login-form-section {
+
+        width: 100%;
+
+        min-height: auto;
+
+    }
+
+
+    .login-tree {
+
+        transform:
+            translate(-50%, -35%)
+            scale(0.7);
+
+    }
+
+
+    .login-tagline {
+
+        bottom: 20px;
+
+        font-size: 19px;
+
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    .login-page {
+
+        border-width: 5px;
+
+    }
+
+
+    .login-tree-section {
+
+        padding: 20px;
+
+        height: 330px;
+
+        min-height: 330px;
+
+    }
+
+
+    .brand-icon {
+
+        font-size: 40px;
+
+    }
+
+
+    .brand-text h1 {
+
+        font-size: 30px;
+
+    }
+
+
+    .brand-text p {
+
+        font-size: 15px;
+
+    }
+
+
+    .login-form-section {
+
+        padding: 20px;
+
+    }
+
+
+    .login-box {
+
+        padding: 25px;
+
+    }
+
+
+    .login-box h2 {
+
+        font-size: 32px;
+
+    }
+
+
+    .login-subtitle {
+
+        font-size: 15px;
+
+    }
+
+
+    .login-tagline {
+
+        left: 20px;
+
+        width: 300px;
+
+        font-size: 17px;
+
+    }
+
+}

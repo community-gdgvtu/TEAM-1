@@ -152,3 +152,165 @@ Invoke-RestMethod -Uri "http://localhost:3000/users/register" -Method Post -Cont
 # Login
 Invoke-RestMethod -Uri "http://localhost:3000/users/login" -Method Post -ContentType "application/json" -Body '{"email":"test@example.com","password":"password123"}'
 ```
+---
+
+## Word Base
+
+Words are stored in MongoDB as connected word groups. Each group can contain multiple words in multiple languages.
+
+Example:
+```json
+{
+  "translations": [
+    {
+      "language": "en",
+      "words": ["house", "home"]
+    },
+    {
+      "language": "ja",
+      "words": ["家", "住宅"]
+    }
+  ]
+}
+```
+
+### Word Endpoints
+
+#### Get All Word Groups
+- **Endpoint**: `GET /words`
+
+Returns all existing word groups.
+
+#### Look Up a Word
+- **Endpoint**: `GET /words/:word`
+
+Example:
+```text
+GET /words/house
+```
+
+Returns the word group containing the requested word.
+
+#### Add a Word Group
+- **Endpoint**: `POST /words`
+- **Content-Type**: `application/json`
+
+Example Request:
+```json
+{
+  "translations": [
+    {
+      "language": "en",
+      "words": ["house", "home"]
+    },
+    {
+      "language": "ja",
+      "words": ["家", "住宅"]
+    }
+  ]
+}
+```
+
+The backend should check whether any of the supplied words already exist before creating a duplicate word group.
+
+#### Add a Translation
+- **Endpoint**: `PATCH /words/:id/translations`
+- **Content-Type**: `application/json`
+
+Example Request:
+```json
+{
+  "language": "id",
+  "words": ["rumah"]
+}
+```
+
+---
+
+## Real-Time Messaging
+
+Messaging uses Socket.IO for real-time delivery and MongoDB for permanent storage.
+
+Messages are created from existing words in the word base rather than free-form text.
+
+Example message:
+```json
+{
+  "senderId": "user1",
+  "receiverId": "user2",
+  "components": [
+    {
+      "wordGroupId": "group1",
+      "selectedWord": "I",
+      "language": "en"
+    },
+    {
+      "wordGroupId": "group2",
+      "selectedWord": "want",
+      "language": "en"
+    },
+    {
+      "wordGroupId": "group3",
+      "selectedWord": "food",
+      "language": "en"
+    }
+  ]
+}
+```
+
+The order of `components` represents the sentence:
+```text
+[I] [want] [food]
+```
+
+Each component stores the selected word together with its `wordGroupId`, allowing the receiver to inspect the connected translations for that word.
+
+### Socket Events
+
+#### `register`
+
+Registers the current socket connection to a user.
+
+```javascript
+socket.emit("register", {
+  userId: "user1"
+});
+```
+
+#### `sendMessage`
+
+Sends a word-based message to another user.
+
+```javascript
+socket.emit("sendMessage", {
+  receiverId: "user2",
+  components: [...]
+});
+```
+
+The backend stores the message in MongoDB and emits it to the receiver.
+
+#### `receiveMessage`
+
+The receiver listens for new messages:
+
+```javascript
+socket.on("receiveMessage", (message) => {
+  console.log(message);
+});
+```
+
+### Message History
+
+Stored conversations can be retrieved through the REST API.
+
+- **Endpoint**: `GET /messages/conversation/:user1/:user2`
+
+Example:
+```text
+GET /messages/conversation/user1/user2
+```
+
+Socket.IO handles live delivery, while MongoDB stores the conversation history.
+
+> **Authentication Note:** The current Socket.IO prototype can register users with a supplied `userId`. For production, the existing JWT authentication should also be used to verify socket connections rather than trusting a client-supplied user ID.
