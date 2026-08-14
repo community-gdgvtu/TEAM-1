@@ -264,14 +264,7 @@ function renderUsers(userList) {
             String(user.id);
 
         button.innerHTML = `
-            <div class="person-avatar">
-
-                <img
-                    src="../../assets/profile-placeholder.png"
-                    alt="${escapeHtml(user.username)}"
-                >
-
-            </div>
+            
 
             <div class="person-info">
 

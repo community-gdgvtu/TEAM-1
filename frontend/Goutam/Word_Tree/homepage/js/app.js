@@ -285,24 +285,95 @@ if (startLearning) {
 
     startLearning.addEventListener(
         "click",
-        () => {
+        async () => {
 
-            const treeSection =
-                document.getElementById(
-                    "treeSection"
+            try {
+
+                const wordGroups =
+                    await getAllWordGroups();
+
+                const allWords = [];
+
+
+                wordGroups.forEach(
+                    group => {
+
+                        group.translations?.forEach(
+                            translation => {
+
+                                translation.words?.forEach(
+                                    word => {
+
+                                        allWords.push(
+                                            word
+                                        );
+
+                                    }
+                                );
+
+                            }
+                        );
+
+                    }
                 );
 
 
-            if (treeSection) {
+                if (allWords.length === 0) {
 
-                treeSection.scrollIntoView({
-                    behavior: "smooth"
-                });
+                    alert(
+                        "No words found yet."
+                    );
+
+                    return;
+                }
+
+
+                const randomWord =
+                    allWords[
+                        Math.floor(
+                            Math.random() *
+                            allWords.length
+                        )
+                    ];
+
+
+                console.log(
+                    "Random learning word:",
+                    randomWord
+                );
+
+
+                if (
+                    typeof openWordPopup ===
+                    "function"
+                ) {
+
+                    await openWordPopup(
+                        randomWord
+                    );
+
+                }
+                else {
+
+                    console.error(
+                        "openWordPopup() is not available."
+                    );
+
+                }
+
             }
+            catch (error) {
+
+                console.error(
+                    "Failed to open random word:",
+                    error
+                );
+
+            }
+
         }
     );
 }
-
 
 /* =========================================
    LOAD PROFILE PICTURE POPUP

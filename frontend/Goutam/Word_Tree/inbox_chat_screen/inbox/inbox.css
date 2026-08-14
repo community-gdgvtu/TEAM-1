@@ -272,7 +272,8 @@ body {
 .message-incoming {
     margin-right: auto;
 
-    background: #FA8334;
+    background: #532810;
+    color: white;
 
     border-bottom-left-radius: 5px;
 }
@@ -288,9 +289,9 @@ body {
     width: 14px;
     height: 14px;
 
-    background: #FA8334;
+    background: #532810;
 
-    border-left: 3px solid #111;
+    border-left: 3px solid #f8f5f5;
     border-bottom: 3px solid #111;
 
     transform: skewX(-35deg);
