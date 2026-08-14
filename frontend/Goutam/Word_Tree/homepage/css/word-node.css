@@ -13,6 +13,12 @@
     cursor: pointer;
 }
 
+.tree-word,
+.word-node {
+    user-select: none;
+    -webkit-user-select: none;
+}
+
 .word-node:hover {
     transform: scale(1.08) rotate(-1deg);
     box-shadow: 5px 5px 0 #111;
