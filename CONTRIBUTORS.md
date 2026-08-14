@@ -15,7 +15,7 @@ Cross-border team: GDG on Campus VTU Belagavi × GDG on Campus Waseda University
 
 | Name | Role |
 |------|------|
-|      | Mentor |
+|Gabriel   | Mentor |
 
 ---
 *Add yourself via PR when you make your first commit — keep this file current through Aug 14.*
