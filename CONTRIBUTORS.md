@@ -6,10 +6,10 @@ Cross-border team: GDG on Campus VTU Belagavi × GDG on Campus Waseda University
 
 | Name | GitHub Handle | Institution | Role |
 |------|---------------|--------------|------|
-|      |               | VTU Belagavi |      |
-|      |               | VTU Belagavi |      |
-|      |               | Waseda University |      |
-| Dennis Second Kubo |   | Waseda University |      |
+| Rohan Halaj   |  rohanhalaj18  | VTU Belagavi |      |
+|Goutam Khatri   |Darknight3007| VTU Belagavi |      |
+|Elizabeth Candra Budiono|WizardyEli-Nori| Waseda University |      |
+| Dennis Second Kubo |oppaden2   | Waseda University |      |
 
 ## Mentors / Support
 
