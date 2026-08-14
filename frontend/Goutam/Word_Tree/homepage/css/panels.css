@@ -77,11 +77,15 @@
 
 .quote-panel {
     position: absolute;
-    right: 2%;
-    bottom: 2%;
-    width: min(260px, 20vw);
-    padding: 15px;
-    background: #fa8334;
+
+    right: 10px;
+
+    top: 720px;
+
+    width: 300px;
+
+    background: #FA8334;
+
     z-index: 20;
 }
 
