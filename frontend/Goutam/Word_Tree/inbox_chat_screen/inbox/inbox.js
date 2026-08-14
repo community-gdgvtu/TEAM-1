@@ -15,6 +15,86 @@ const SOCKET_BASE_URL =
 
 
 /* =========================================
+   WORD TREE API FOR HOMEPAGE popup.js
+   ========================================= */
+
+async function lookupWord(word) {
+    const response = await fetch(
+        `${API_BASE_URL}/words/${encodeURIComponent(word)}`
+    );
+
+    if (!response.ok) {
+        let data = {};
+
+        try {
+            data = await response.json();
+        } catch (error) {
+            // Response did not contain JSON.
+        }
+
+        throw new Error(
+            data.message ||
+            "Word lookup failed"
+        );
+    }
+
+    return response.json();
+}
+
+
+async function addTranslationToGroup(
+    wordGroupId,
+    language,
+    words
+) {
+    const response = await fetch(
+        `${API_BASE_URL}/words/${wordGroupId}/translations`,
+        {
+            method: "PATCH",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                language,
+                words
+            })
+        }
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+        throw new Error(
+            data.message ||
+            "Failed to add translation"
+        );
+    }
+
+    return data;
+}
+
+
+/*
+   popup.js normally gets this from homepage/app.js.
+   The inbox provides the same functions so the exact
+   same popup can be reused here.
+*/
+window.WordTreeAPI = {
+    lookupWord,
+    addTranslationToGroup
+};
+
+
+window.dispatchEvent(
+    new CustomEvent(
+        "wordtree:api-ready"
+    )
+);
+
+
+/* =========================================
    LOGGED IN USER
    ========================================= */
 
@@ -790,10 +870,7 @@ function getMessageText(message) {
    DISPLAY MESSAGE
    ========================================= */
 
-function addMessageToScreen(
-    message,
-    type
-) {
+function addMessageToScreen(message, type) {
     chatMessages
         .querySelector(".empty-chat")
         ?.remove();
@@ -806,11 +883,79 @@ function addMessageToScreen(
             ? "message message-outgoing"
             : "message message-incoming";
 
+
+    /* =====================================
+       MESSAGE WORDS
+       ===================================== */
+
     const text =
         document.createElement("p");
 
-    text.textContent =
-        getMessageText(message);
+    text.className =
+        "message-words";
+
+
+    if (Array.isArray(message.components)) {
+
+        message.components.forEach(
+            (component, index) => {
+
+                const word =
+                    document.createElement("button");
+
+                word.type = "button";
+
+                word.className =
+                    "chat-word";
+
+                word.textContent =
+                    component.selectedWord;
+
+                /*
+                   Click word -> open its
+                   Word Tree translation popup
+                */
+
+                word.addEventListener(
+                    "click",
+                    event => {
+
+                        event.stopPropagation();
+
+                        openWordPopup(
+                            component.selectedWord
+                        );
+
+                    }
+                );
+
+                text.appendChild(word);
+
+
+                /*
+                   Add normal space between words.
+                */
+
+                if (
+                    index <
+                    message.components.length - 1
+                ) {
+
+                    text.appendChild(
+                        document.createTextNode(" ")
+                    );
+
+                }
+
+            }
+        );
+
+    }
+
+
+    /* =====================================
+       TIME
+       ===================================== */
 
     const timestamp =
         document.createElement("span");
@@ -819,6 +964,7 @@ function addMessageToScreen(
         formatTimestamp(
             message.createdAt
         );
+
 
     element.appendChild(text);
     element.appendChild(timestamp);
