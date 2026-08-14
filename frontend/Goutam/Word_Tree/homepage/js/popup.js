@@ -590,6 +590,13 @@ function setupExistingTranslationButton() {
 
                 renderTranslations();
 
+
+                window.dispatchEvent(
+                    new CustomEvent(
+                        "wordtree:words-changed"
+                    )
+                );
+
             }
             catch (error) {
 

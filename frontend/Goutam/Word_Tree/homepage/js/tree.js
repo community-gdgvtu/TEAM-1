@@ -182,7 +182,7 @@ runtimeStyle.textContent = `
 
     /* WORDS ALWAYS STAY ABOVE THE TREE */
     .word-node {
-        position: absolute !important;
+        position: relative !important;
 
         /*
           Ignore the old node-* positional CSS.
@@ -222,6 +222,150 @@ runtimeStyle.textContent = `
             top,
             transform,
             opacity;
+    }
+
+
+    .word-cluster {
+        position: absolute !important;
+
+        z-index: 9999 !important;
+
+        transform-origin: center top;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        transition:
+            transform 60ms linear,
+            opacity 220ms ease,
+            filter 160ms ease;
+
+        will-change:
+            left,
+            top,
+            transform,
+            opacity;
+    }
+
+
+    .word-translation-connector {
+        width: 2px;
+        height: 14px;
+
+        background: #222;
+
+        opacity: 0;
+
+        margin-top: 4px;
+        margin-bottom: 3px;
+
+        transform: translateY(-8px);
+
+        transition:
+            opacity 180ms ease,
+            transform 180ms ease;
+
+        pointer-events: none;
+    }
+
+
+    .word-translation-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        gap: 0;
+
+        text-align: left;
+
+        opacity: 0;
+        transform: translateY(-10px) scaleY(0.96);
+        transform-origin: top center;
+
+        transition:
+            opacity 220ms ease,
+            transform 220ms ease;
+
+        pointer-events: none;
+    }
+
+
+    .word-cluster:hover .word-translation-connector,
+    .word-cluster:focus-within .word-translation-connector {
+        opacity: 0.78;
+        transform: translateY(0);
+    }
+
+
+    .word-cluster:hover .word-translation-box,
+    .word-cluster:focus-within .word-translation-box {
+        opacity: 1;
+        transform: translateY(0) scaleY(1);
+
+        pointer-events: auto;
+    }
+
+
+    .word-translation-language-btn {
+        border: 0;
+        background: transparent;
+        padding: 0;
+
+        font-weight: 700;
+        font-size: 10px;
+
+        text-decoration: underline;
+        cursor: pointer;
+
+        color: #102a43;
+    }
+
+
+    .word-translation-words {
+        margin-top: 1px;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+
+    .word-translation-tier {
+        min-width: 120px;
+        max-width: 150px;
+
+        padding: 4px 6px;
+
+        border: 2px solid #111;
+        border-radius: 10px;
+
+        background: #fffdf5;
+
+        box-shadow:
+            0 2px 0 rgba(0, 0, 0, 0.2);
+
+        font-size: 10px;
+        line-height: 1.1;
+
+        white-space: normal;
+
+        text-align: center;
+
+        pointer-events: auto;
+    }
+
+
+    .word-translation-chain {
+        width: 2px;
+        height: 12px;
+
+        background: #222;
+
+        opacity: 0.78;
+
+        margin-top: 2px;
+        margin-bottom: 2px;
     }
 
 
@@ -413,9 +557,88 @@ function getDisplayWordFromGroup(
         language:
             selected.language,
 
+        translationLines:
+            getTranslationLinesFromGroup(
+                group,
+                selected.words[0]
+            ),
+
         groupId:
             String(group._id)
     };
+}
+
+
+function getTranslationLinesFromGroup(
+    group,
+    displayWord
+) {
+    const translations =
+        Array.isArray(
+            group?.translations
+        )
+            ? group.translations
+            : [];
+
+
+    const lines = [];
+
+
+    for (
+        const translation
+        of translations
+    ) {
+
+        const language =
+            String(
+                translation?.language ||
+                "unknown"
+            ).trim();
+
+
+        const words =
+            Array.isArray(
+                translation?.words
+            )
+                ? translation.words
+                : [];
+
+
+        const cleanedWords =
+            words
+                .map(
+                    word =>
+                        String(word).trim()
+                )
+                .filter(Boolean);
+
+
+        if (
+            cleanedWords.length ===
+            0
+        ) {
+            continue;
+        }
+
+
+        lines.push({
+            language,
+            words: cleanedWords
+        });
+    }
+
+
+    if (
+        lines.length === 0
+    ) {
+        lines.push({
+            language: "info",
+            words: ["No extra translations"]
+        });
+    }
+
+
+    return lines;
 }
 
 
@@ -443,6 +666,28 @@ function createWordNode(
     total
 ) {
 
+    const cluster =
+        document.createElement(
+            "div"
+        );
+
+
+    cluster.className =
+        "word-cluster";
+
+
+    cluster.dataset.word =
+        entry.word;
+
+
+    cluster.dataset.language =
+        entry.language;
+
+
+    cluster.dataset.groupId =
+        entry.groupId;
+
+
     const node =
         document.createElement(
             "button"
@@ -453,20 +698,155 @@ function createWordNode(
         "word-node";
 
 
-    node.dataset.word =
-        entry.word;
-
-
-    node.dataset.language =
-        entry.language;
-
-
-    node.dataset.groupId =
-        entry.groupId;
+    node.type =
+        "button";
 
 
     node.textContent =
         entry.word;
+
+
+    node.addEventListener(
+        "click",
+        event => {
+
+            event.stopPropagation();
+
+
+            openWordPopup(
+                cluster.dataset.word
+            );
+        }
+    );
+
+
+    const connector =
+        document.createElement(
+            "div"
+        );
+
+
+    connector.className =
+        "word-translation-connector";
+
+
+    const translationBox =
+        document.createElement(
+            "div"
+        );
+
+
+    translationBox.className =
+        "word-translation-box";
+
+
+    const translationLines =
+        entry.translationLines ||
+        [];
+
+
+    translationLines.forEach(
+        (
+            line,
+            lineIndex
+        ) => {
+
+            const tier =
+                document.createElement(
+                    "div"
+                );
+
+
+            tier.className =
+                "word-translation-tier";
+
+
+            const languageButton =
+                document.createElement(
+                    "button"
+                );
+
+
+            languageButton.type =
+                "button";
+
+
+            languageButton.className =
+                "word-translation-language-btn";
+
+
+            languageButton.textContent =
+                line.language;
+
+
+            languageButton.addEventListener(
+                "click",
+                event => {
+
+                    event.stopPropagation();
+
+
+                    openWordPopup(
+                        line.words[0] ||
+                        cluster.dataset.word
+                    );
+                }
+            );
+
+
+            const wordsText =
+                document.createElement(
+                    "div"
+                );
+
+
+            wordsText.className =
+                "word-translation-words";
+
+
+            wordsText.textContent =
+                line.words.join(
+                    " - "
+                );
+
+
+            tier.appendChild(
+                languageButton
+            );
+
+
+            tier.appendChild(
+                wordsText
+            );
+
+
+            translationBox.appendChild(
+                tier
+            );
+
+
+            if (
+                lineIndex <
+                translationLines.length -
+                    1
+            ) {
+
+                const chain =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                chain.className =
+                    "word-translation-chain";
+
+
+                translationBox.appendChild(
+                    chain
+                );
+            }
+        }
+    );
 
 
     /*
@@ -496,26 +876,35 @@ function createWordNode(
         );
 
 
-    node.addEventListener(
-        "click",
-        event => {
-
-            event.stopPropagation();
+    cluster.dataset.angle =
+        node.dataset.angle;
 
 
-            openWordPopup(
-                node.dataset.word
-            );
-        }
-    );
+    cluster.dataset.yOffset =
+        node.dataset.yOffset;
 
 
-    treeSection.appendChild(
+    cluster.appendChild(
         node
     );
 
 
-    return node;
+    cluster.appendChild(
+        connector
+    );
+
+
+    cluster.appendChild(
+        translationBox
+    );
+
+
+    treeSection.appendChild(
+        cluster
+    );
+
+
+    return cluster;
 }
 
 
@@ -651,11 +1040,11 @@ function updateTree() {
 
 
     wordNodes.forEach(
-        node => {
+        cluster => {
 
             const baseAngle =
                 Number(
-                    node.dataset.angle
+                    cluster.dataset.angle
                 );
 
 
@@ -685,7 +1074,7 @@ function updateTree() {
 
             const yOffset =
                 Number(
-                    node.dataset.yOffset
+                    cluster.dataset.yOffset
                 );
 
 
@@ -703,7 +1092,7 @@ function updateTree() {
                 0.04;
 
 
-            node.style.setProperty(
+            cluster.style.setProperty(
                 "left",
 
                 `calc(
@@ -715,7 +1104,7 @@ function updateTree() {
             );
 
 
-            node.style.setProperty(
+            cluster.style.setProperty(
                 "top",
 
                 `${
@@ -727,12 +1116,12 @@ function updateTree() {
             );
 
 
-            node.style.transform =
+            cluster.style.transform =
                 `translateX(-50%)
                  scale(${scale})`;
 
 
-            node.style.setProperty(
+            cluster.style.setProperty(
                 "z-index",
                 "9999",
                 "important"
@@ -785,20 +1174,20 @@ function updateTree() {
             }
 
 
-            node.style.opacity =
+            cluster.style.opacity =
                 String(
                     wordOpacity
                 );
 
 
-            node.style.pointerEvents =
+            cluster.style.pointerEvents =
                 wordOpacity <
                 0.15
                     ? "none"
                     : "auto";
 
 
-            node.style.filter =
+            cluster.style.filter =
                 depth < 0
                     ? "brightness(0.92)"
                     : "brightness(1)";
@@ -819,6 +1208,9 @@ treeSection.addEventListener(
         if (
     event.target.closest(
         ".word-node"
+    ) ||
+    event.target.closest(
+        ".word-translation-language-btn"
     ) ||
     event.target.closest(
         "#addWordLauncher"
