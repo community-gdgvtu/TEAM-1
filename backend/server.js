@@ -3,6 +3,7 @@ import { MongoClient } from "mongodb";
 import dotenv from "dotenv";
 import http from "http";
 import { Server } from "socket.io";
+import cors from "cors";
 
 import createUserApi from "./src/users/api.js";
 import createWordsApi from "./src/words/api.js";
@@ -13,6 +14,8 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+app.use(cors());
 
 // Lets Express read JSON request bodies
 app.use(express.json());

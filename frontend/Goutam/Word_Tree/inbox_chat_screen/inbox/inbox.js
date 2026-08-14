@@ -8,10 +8,10 @@
    ========================================= */
 
 const API_BASE_URL =
-    "https://cuddly-parakeet-q75547g7rq724rrp-8010.app.github.dev/proxy";
+    "http://127.0.0.1:3000";
 
 const SOCKET_BASE_URL =
-    "https://cuddly-parakeet-q75547g7rq724rrp-3000.app.github.dev";
+    "http://127.0.0.1:3000";
 
 
 /* =========================================
