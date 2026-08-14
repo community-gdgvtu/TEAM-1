@@ -425,3 +425,59 @@ if (profileButton) {
    ========================================= */
 
 loadProfilePopup();
+
+const quoteLikeButton =
+   document.getElementById(
+      "quoteLikeButton"
+   );
+
+
+quoteLikeButton?.addEventListener(
+   "click",
+   () => {
+
+      const isLiked =
+         quoteLikeButton.classList.toggle(
+            "liked"
+         );
+
+
+      quoteLikeButton.textContent =
+         isLiked
+            ? "♥"
+            : "♡";
+
+
+      localStorage.setItem(
+         "wordtree_quote_liked",
+         isLiked
+      );
+
+   }
+);
+
+
+/* =========================================
+   RESTORE LIKE AFTER REFRESH
+   ========================================= */
+
+const savedQuoteLike =
+   localStorage.getItem(
+      "wordtree_quote_liked"
+   );
+
+
+if (
+   savedQuoteLike === "true" &&
+   quoteLikeButton
+) {
+
+   quoteLikeButton.classList.add(
+      "liked"
+   );
+
+
+   quoteLikeButton.textContent =
+      "♥";
+
+}

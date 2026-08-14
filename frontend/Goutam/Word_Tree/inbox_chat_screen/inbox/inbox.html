@@ -1,78 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Word Tree - Inbox</title>
-    <link rel="stylesheet" href="inbox.css">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Word Tree - Messages</title>
+
+    <link
+        rel="stylesheet"
+        href="inbox.css"
+    >
 </head>
 
+
 <body>
-    <main class="inbox-page">
 
-        <!-- HEADER -->
-        <header class="inbox-header">
-            <button class="back-button" id="backButton" type="button">←</button>
+    <main class="messages-page">
 
-            <div class="inbox-title">
-                <h1>INBOX</h1>
-                <p>YOUR LANGUAGE CONNECTIONS</p>
-            </div>
-        </header>
 
-        <!-- INBOX CONTENT -->
-        <section class="inbox-content">
+        <!-- =====================================
+             LEFT SIDE - USERS
+             ===================================== -->
+
+        <aside class="people-panel">
+
+
+            <!-- HEADER -->
+
+            <header class="people-header">
+
+                <button
+                    class="back-button"
+                    id="backButton"
+                    type="button"
+                >
+                    ←
+                </button>
+
+
+                <div>
+
+                    <h1>
+                        PALS
+                    </h1>
+
+                    <p>
+                        FIND SOMEONE TO TALK TO
+                    </p>
+
+                </div>
+
+            </header>
+
 
             <!-- SEARCH -->
-            <div class="inbox-search">
+
+            <div class="people-search">
+
                 <input
                     type="text"
                     id="searchUsers"
-                    placeholder="SEARCH YOUR PALS..."
+                    placeholder="SEARCH USERS..."
                     autocomplete="off"
                 >
+
             </div>
 
-            <!-- CONVERSATION LIST -->
-            <section class="conversation-list" id="conversationList">
 
-                <!--
-                    BACKEND TODO:
-                    Populate this section with the user's
-                    conversations.
+            <!-- USERS FROM DATABASE -->
 
-                    DO NOT ADD DUMMY USERS.
+            <section
+                class="people-list"
+                id="peopleList"
+            >
 
-                    Expected data:
-                    USER_ID
-                    USER_NAME
-                    USER_PROFILE_IMAGE
-                    LAST_MESSAGE
-                    MESSAGE_TIMESTAMP
-                    UNREAD_COUNT
-                    ONLINE_STATUS
-                -->
-
-                <div class="empty-inbox">
-                    <h2>YOUR CONVERSATIONS</h2>
-                    <p>YOUR_CONVERSATIONS_WILL_APPEAR_HERE</p>
-                    <span>BACKEND INTEGRATION REQUIRED</span>
+                <div class="empty-users">
+                    LOADING USERS...
                 </div>
 
             </section>
-        </section>
 
-        <!-- FIND A PAL -->
-        <button
-            class="new-pal-button"
-            id="newPalButton"
-            type="button"
-        >
-            + FIND A PAL
-        </button>
+        </aside>
+
+
+
+        <!-- =====================================
+             RIGHT SIDE - CHAT
+             ===================================== -->
+
+        <section class="chat-panel">
+
+
+            <!-- NO USER SELECTED -->
+
+            <div
+                class="no-chat-selected"
+                id="noChatSelected"
+            >
+
+                <div class="no-chat-icon">
+                    💬
+                </div>
+
+                <h2>
+                    SELECT SOMEONE
+                </h2>
+
+                <p>
+                    Choose a person from the left to start chatting.
+                </p>
+
+            </div>
+
+
+
+            <!-- ACTUAL CHAT -->
+
+            <div
+                class="active-chat"
+                id="activeChat"
+                hidden
+            >
+
+
+                <!-- CHAT HEADER -->
+
+                <header class="chat-header">
+
+                    <div class="chat-user">
+
+                        <div class="chat-avatar">
+
+                            <img
+                                src="../../assets/profile-placeholder.png"
+                                alt="Profile picture"
+                                id="chatUserImage"
+                            >
+
+                        </div>
+
+
+                        <div>
+
+                            <h2 id="chatUserName">
+                                USER
+                            </h2>
+
+                            <p id="chatUserStatus">
+                                CHAT
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </header>
+
+
+                <!-- MESSAGES -->
+
+                <section
+                    class="chat-messages"
+                    id="chatMessages"
+                >
+
+                    <div class="empty-chat">
+
+                        <div class="empty-chat-icon">
+                            💬
+                        </div>
+
+                        <h2>
+                            START YOUR CONVERSATION
+                        </h2>
+
+                    </div>
+
+                </section>
+
+
+                <!-- MESSAGE INPUT -->
+
+                <footer class="chat-input-area">
+
+                    <input
+                        type="text"
+                        id="messageInput"
+                        placeholder="TYPE YOUR MESSAGE..."
+                        autocomplete="off"
+                    >
+
+
+                    <button
+                        id="sendMessage"
+                        type="button"
+                    >
+                        SEND
+                    </button>
+
+                </footer>
+
+            </div>
+
+        </section>
 
     </main>
 
+
+    <!-- SOCKET.IO -->
+
+    <script
+        src="https://cdn.socket.io/4.8.1/socket.io.min.js"
+    ></script>
+
     <script src="inbox.js"></script>
+
 </body>
+
 </html>
