@@ -281,17 +281,24 @@ body {
 
 .login-tagline {
 
-    position: absolute;
+   position: absolute;
 
-    left: 40px;
+   left: 48%;
 
-    bottom: 50px;
+   bottom: 35px;
 
-    width: 420px;
+   transform:
+      translateX(-50%);
 
-    font-size: 24px;
+   width: auto;
 
-    line-height: 1.4;
+   white-space: nowrap;
+
+   text-align: center;
+
+   font-size: 20px;
+
+   line-height: 1.4;
 
 }
 
@@ -314,7 +321,7 @@ body {
 
     padding: 40px;
 
-    background: #ed3518;
+    background: #FA8334;
 
 }
 
@@ -331,7 +338,7 @@ body {
 
     padding: 40px;
 
-    background: #ed3518;
+    background: #FA8334;
 
     border: 5px solid #111;
 
