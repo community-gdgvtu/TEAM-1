@@ -7,7 +7,7 @@ console.log("APP.JS LOADED");
 
 // need to change cuz im using codespace ngl
 const API_BASE_URL =
-    "https://humble-goldfish-7vpw7grr59qxcp49r-8010.app.github.dev/proxy";
+    "https://cuddly-parakeet-q75547g7rq724rrp-8010.app.github.dev/proxy";
 
 
 /* ============================================================
@@ -23,7 +23,7 @@ async function getAllWordGroups() {
         `${API_BASE_URL}/words`;
 
 
-    console.log(
+            console.log(
         "FETCHING:",
         url
     );
