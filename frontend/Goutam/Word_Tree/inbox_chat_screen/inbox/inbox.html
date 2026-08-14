@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Tree - Inbox</title>
+    <link rel="stylesheet" href="inbox.css">
+</head>
+
+<body>
+    <main class="inbox-page">
+
+        <!-- HEADER -->
+        <header class="inbox-header">
+            <button class="back-button" id="backButton" type="button">←</button>
+
+            <div class="inbox-title">
+                <h1>INBOX</h1>
+                <p>YOUR LANGUAGE CONNECTIONS</p>
+            </div>
+        </header>
+
+        <!-- INBOX CONTENT -->
+        <section class="inbox-content">
+
+            <!-- SEARCH -->
+            <div class="inbox-search">
+                <input
+                    type="text"
+                    id="searchUsers"
+                    placeholder="SEARCH YOUR PALS..."
+                    autocomplete="off"
+                >
+            </div>
+
+            <!-- CONVERSATION LIST -->
+            <section class="conversation-list" id="conversationList">
+
+                <!--
+                    BACKEND TODO:
+                    Populate this section with the user's
+                    conversations.
+
+                    DO NOT ADD DUMMY USERS.
+
+                    Expected data:
+                    USER_ID
+                    USER_NAME
+                    USER_PROFILE_IMAGE
+                    LAST_MESSAGE
+                    MESSAGE_TIMESTAMP
+                    UNREAD_COUNT
+                    ONLINE_STATUS
+                -->
+
+                <div class="empty-inbox">
+                    <h2>YOUR CONVERSATIONS</h2>
+                    <p>YOUR_CONVERSATIONS_WILL_APPEAR_HERE</p>
+                    <span>BACKEND INTEGRATION REQUIRED</span>
+                </div>
+
+            </section>
+        </section>
+
+        <!-- FIND A PAL -->
+        <button
+            class="new-pal-button"
+            id="newPalButton"
+            type="button"
+        >
+            + FIND A PAL
+        </button>
+
+    </main>
+
+    <script src="inbox.js"></script>
+</body>
+</html>

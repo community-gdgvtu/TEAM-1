@@ -1,0 +1,328 @@
+/* =========================================
+   WORD TREE - INBOX
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    background: #e8e2c9;
+    color: #111;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+body {
+    min-height: 100vh;
+}
+
+/* MAIN PAGE */
+
+.inbox-page {
+    position: relative;
+    width: min(1100px, 94%);
+    min-height: 92vh;
+    margin: 30px auto;
+    padding: 25px;
+    border: 5px solid #111;
+    background: #e8e2c9;
+}
+
+/* HEADER */
+
+.inbox-header {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    padding: 15px;
+    border: 4px solid #111;
+    background: #e8e2c9;
+}
+
+/* BACK BUTTON */
+
+.back-button {
+    width: 55px;
+    height: 55px;
+    flex-shrink: 0;
+    background: #c40072;
+    border: 4px solid #111;
+    color: #111;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+.back-button:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 #111;
+}
+
+/* TITLE */
+
+.inbox-title {
+    flex: 1;
+}
+
+.inbox-title h1 {
+    margin: 0;
+    font-size: clamp(34px, 5vw, 58px);
+    letter-spacing: 2px;
+}
+
+.inbox-title p {
+    margin: 4px 0 0;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+/* CONTENT */
+
+.inbox-content {
+    width: 100%;
+    max-width: 850px;
+    margin: 30px auto 100px;
+}
+
+/* SEARCH */
+
+.inbox-search {
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.inbox-search input {
+    width: 100%;
+    height: 55px;
+    padding: 0 18px;
+    background: #f1ead3;
+    border: 4px solid #111;
+    outline: none;
+    color: #111;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+}
+
+.inbox-search input::placeholder {
+    color: #333;
+}
+
+.inbox-search input:focus {
+    box-shadow: 5px 5px 0 #111;
+}
+
+/* CONVERSATION LIST */
+
+.conversation-list {
+    width: 100%;
+    min-height: 430px;
+    padding: 25px;
+    border: 4px solid #111;
+    background: #ed3518;
+}
+
+/* EMPTY INBOX */
+
+.empty-inbox {
+    min-height: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    text-align: center;
+}
+
+.empty-inbox h2 {
+    margin: 0 0 15px;
+    font-size: 30px;
+}
+
+.empty-inbox p {
+    margin: 0 0 15px;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.empty-inbox span {
+    display: inline-block;
+    padding: 10px 15px;
+    border: 3px dashed #111;
+    font-size: 14px;
+}
+
+/* CONVERSATION ITEM */
+/*
+Backend can use:
+
+<article class="conversation-item">
+    <img class="conversation-avatar">
+    <div class="conversation-details">
+        <h3>USER_NAME</h3>
+        <p>LAST_MESSAGE</p>
+    </div>
+    <div class="conversation-meta">
+        <span>MESSAGE_TIMESTAMP</span>
+        <span>UNREAD_COUNT</span>
+    </div>
+</article>
+*/
+
+.conversation-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    min-height: 90px;
+    padding: 12px;
+    margin-bottom: 12px;
+    background: #c40072;
+    border: 4px solid #111;
+    cursor: pointer;
+}
+
+.conversation-item:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 #111;
+}
+
+/* PROFILE IMAGE */
+
+.conversation-avatar {
+    width: 65px;
+    height: 65px;
+    flex-shrink: 0;
+    object-fit: cover;
+    border: 3px solid #111;
+}
+
+/* USER / MESSAGE */
+
+.conversation-details {
+    min-width: 0;
+    flex: 1;
+}
+
+.conversation-details h3 {
+    margin: 0 0 5px;
+    font-size: 21px;
+}
+
+.conversation-details p {
+    margin: 0;
+    font-size: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* TIME / UNREAD */
+
+.conversation-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    font-size: 13px;
+}
+
+.unread-count {
+    min-width: 25px;
+    height: 25px;
+    padding: 3px 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #e8e2c9;
+    border: 2px solid #111;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+/* FIND A PAL */
+
+.new-pal-button {
+    position: absolute;
+    right: 25px;
+    bottom: 25px;
+    min-height: 55px;
+    padding: 0 25px;
+    background: #c40072;
+    border: 4px solid #111;
+    color: #111;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.new-pal-button:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 #111;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 700px) {
+    .inbox-page {
+        width: 96%;
+        margin: 15px auto;
+        padding: 15px;
+        border-width: 4px;
+    }
+
+    .inbox-header {
+        gap: 12px;
+        padding: 10px;
+    }
+
+    .back-button {
+        width: 45px;
+        height: 45px;
+        font-size: 25px;
+    }
+
+    .inbox-title h1 {
+        font-size: 35px;
+    }
+
+    .inbox-title p {
+        font-size: 11px;
+    }
+
+    .conversation-list {
+        padding: 12px;
+    }
+
+    .conversation-item {
+        gap: 10px;
+        padding: 8px;
+    }
+
+    .conversation-avatar {
+        width: 50px;
+        height: 50px;
+    }
+
+    .conversation-details h3 {
+        font-size: 17px;
+    }
+
+    .conversation-details p {
+        font-size: 13px;
+    }
+
+    .conversation-meta {
+        font-size: 11px;
+    }
+
+    .new-pal-button {
+        position: static;
+        width: 100%;
+        margin-top: 20px;
+    }
+}
