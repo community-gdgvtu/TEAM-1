@@ -285,24 +285,95 @@ if (startLearning) {
 
     startLearning.addEventListener(
         "click",
-        () => {
+        async () => {
 
-            const treeSection =
-                document.getElementById(
-                    "treeSection"
+            try {
+
+                const wordGroups =
+                    await getAllWordGroups();
+
+                const allWords = [];
+
+
+                wordGroups.forEach(
+                    group => {
+
+                        group.translations?.forEach(
+                            translation => {
+
+                                translation.words?.forEach(
+                                    word => {
+
+                                        allWords.push(
+                                            word
+                                        );
+
+                                    }
+                                );
+
+                            }
+                        );
+
+                    }
                 );
 
 
-            if (treeSection) {
+                if (allWords.length === 0) {
 
-                treeSection.scrollIntoView({
-                    behavior: "smooth"
-                });
+                    alert(
+                        "No words found yet."
+                    );
+
+                    return;
+                }
+
+
+                const randomWord =
+                    allWords[
+                        Math.floor(
+                            Math.random() *
+                            allWords.length
+                        )
+                    ];
+
+
+                console.log(
+                    "Random learning word:",
+                    randomWord
+                );
+
+
+                if (
+                    typeof openWordPopup ===
+                    "function"
+                ) {
+
+                    await openWordPopup(
+                        randomWord
+                    );
+
+                }
+                else {
+
+                    console.error(
+                        "openWordPopup() is not available."
+                    );
+
+                }
+
             }
+            catch (error) {
+
+                console.error(
+                    "Failed to open random word:",
+                    error
+                );
+
+            }
+
         }
     );
 }
-
 
 /* =========================================
    LOAD PROFILE PICTURE POPUP
@@ -425,3 +496,59 @@ if (profileButton) {
    ========================================= */
 
 loadProfilePopup();
+
+const quoteLikeButton =
+   document.getElementById(
+      "quoteLikeButton"
+   );
+
+
+quoteLikeButton?.addEventListener(
+   "click",
+   () => {
+
+      const isLiked =
+         quoteLikeButton.classList.toggle(
+            "liked"
+         );
+
+
+      quoteLikeButton.textContent =
+         isLiked
+            ? "♥"
+            : "♡";
+
+
+      localStorage.setItem(
+         "wordtree_quote_liked",
+         isLiked
+      );
+
+   }
+);
+
+
+/* =========================================
+   RESTORE LIKE AFTER REFRESH
+   ========================================= */
+
+const savedQuoteLike =
+   localStorage.getItem(
+      "wordtree_quote_liked"
+   );
+
+
+if (
+   savedQuoteLike === "true" &&
+   quoteLikeButton
+) {
+
+   quoteLikeButton.classList.add(
+      "liked"
+   );
+
+
+   quoteLikeButton.textContent =
+      "♥";
+
+}

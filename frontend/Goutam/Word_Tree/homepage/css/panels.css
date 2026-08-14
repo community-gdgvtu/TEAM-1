@@ -39,12 +39,15 @@
 }
 
 .about-panel {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: min(390px, 30vw);
-    padding: 16px;
-    z-index: 20;
+   position: absolute;
+   left: 0;
+   bottom: 0;
+
+   width: min(360px, 28vw);
+
+   padding: 18px;
+
+   z-index: 20;
 }
 
 .about-panel h3 {
@@ -76,17 +79,20 @@
 }
 
 .quote-panel {
-    position: absolute;
 
-    right: 10px;
+   position: absolute;
 
-    top: 720px;
+   right: 25px;
 
-    width: 300px;
+   bottom: 25px;
 
-    background: #FA8334;
+   width: 300px;
 
-    z-index: 20;
+   padding: 14px;
+
+   background: #FA8334;
+
+   z-index: 20;
 }
 
 .quote-panel p {
@@ -99,4 +105,45 @@
     text-align: right;
     font-size: 35px;
     margin-top: 5px;
+}
+
+.quote-like-button {
+
+   display: block;
+
+   margin-left: auto;
+   margin-top: 5px;
+
+   padding: 0;
+
+   border: none;
+
+   background: transparent;
+
+   color: #111;
+
+   font-family:
+      Georgia,
+      "Times New Roman",
+      serif;
+
+   font-size: 35px;
+
+   cursor: pointer;
+
+}
+
+
+.quote-like-button:hover {
+
+   transform:
+      scale(1.15);
+
+}
+
+
+.quote-like-button.liked {
+
+   color: #c40072;
+
 }
