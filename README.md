@@ -56,6 +56,7 @@ MONGODB_URI=mongodb://127.0.0.1:27017/wordtree
 PORT=3000
 JWT_SECRET=replace_with_a_secure_secret
 ```
+If you are using a cloud mongodb, use that instead of this mongodb URI
 
 Run backend:
 
@@ -85,14 +86,13 @@ http://127.0.0.1:8000/frontend/Goutam/Word_Tree/index.html
 ```
 
 ## API Base URL Note ⚠️
-
-Frontend files currently use a hardcoded Codespaces proxy URL in:
+If using Codespaces, use these instead in the frontend files:
 
 - `frontend/Goutam/Word_Tree/homepage/js/app.js`
 - `frontend/Goutam/Word_Tree/login/login.js`
 - `frontend/Goutam/Word_Tree/inbox_chat_screen/inbox/inbox.js`
 
-If running locally, update those to your local/proxy API endpoint.
+If running locally, no need to change to local/proxy API endpoint.
 
 ## Core API Endpoints 🔌
 
